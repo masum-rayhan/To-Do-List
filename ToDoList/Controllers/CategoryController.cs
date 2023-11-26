@@ -32,7 +32,7 @@ namespace ToDoList.Controllers
         }
 
         [HttpPut("id: int")]
-        public IActionResult UpdateCategory(Category obj, int id)
+        public IActionResult UpdateCategory(Category obj, int id) 
         {
             if (id == null)
             {
