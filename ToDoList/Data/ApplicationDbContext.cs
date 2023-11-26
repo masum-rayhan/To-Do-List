@@ -10,4 +10,6 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<TaskList> Tasks { get; set; }
+
+    public DbSet<Category> Categories { get; set; }
 }
