@@ -30,4 +30,28 @@ public class TaskListController : ControllerBase
         _context.SaveChanges();
         return Ok();
     }
+
+    [HttpPut]
+    public IActionResult UpdateTask(TaskList taskListToUpdate, int id)
+    {
+        if(id != taskListToUpdate.Id)
+            return BadRequest();
+
+        if(id == taskListToUpdate.Id)
+            _context.Tasks.Update(taskListToUpdate);
+            _context.SaveChanges();
+            return Ok();
+    }
+
+    [HttpDelete]
+    public IActionResult DeleteTask(int id)
+    {
+        var taskList = _context.Tasks.Find(id);
+        if(taskList == null)
+            return NotFound();
+
+        _context.Tasks.Remove(taskList);
+        _context.SaveChanges();
+        return Ok();
+    }
 }
